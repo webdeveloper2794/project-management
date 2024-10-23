@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
-import {Inter, Poppins} from 'next/font/google';
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import ContextAppProvider from "./Pages/contextApp";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -14,10 +15,10 @@ const geistMono = localFont({
 });
 
 const popppins = Poppins({
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ["100" , "200" , "300" , "400" , "500" , "600" ,"700" , "800" , "900"]
-})
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 export const metadata = {
   title: "Project Management",
   description: "Abdurrohman Dev",
@@ -26,11 +27,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${popppins.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <ContextAppProvider>
+        <body
+          className={`${geistSans.variable} ${popppins.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </ContextAppProvider>
     </html>
   );
 }

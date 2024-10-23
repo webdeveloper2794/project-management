@@ -6,7 +6,7 @@ import StatusRightSideBar from './Components/StatusRightSideBar'
 
 const AllProjects = () => {
   return (
-    <div className='bg-slate-50 w-full min-h-screen flex'>
+    <div className='bg-slate-50 w-full min-h-screen flex '>
         <AllProjectsArea/>
         <StatusRightSideBar/>
     </div>
@@ -17,7 +17,7 @@ export default AllProjects
 
 function AllProjectsArea() {
     return(
-        <div className='w-[78%] p-10 flex flex-col gap-3 bordder'>
+        <div className='w-[78%] max-lg:w-full max-sm:p-6 p-10 flex flex-col gap-3 bordder'>
             {/* Search bar and add project button */}
             <ProjectHeader/>
             {/* My project title and add button */}

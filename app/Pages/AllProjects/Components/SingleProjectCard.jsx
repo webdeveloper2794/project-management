@@ -3,7 +3,7 @@ import React from "react";
 
 export const SingleProjectCard = () => {
   return (
-    <li className="w-[300px] flex flex-col gap-8 rounded-lg p-7 bg-white">
+    <li className="w-[300px] max-md:w-[96%] flex flex-col gap-8 rounded-lg p-7 bg-white">
       <ProjectCardHeader />
       <ProjectCardBody />
       <ProjectCardFooter />

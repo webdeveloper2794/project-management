@@ -1,4 +1,4 @@
-import { Add, Search } from "@mui/icons-material";
+import { Add, Menu, Search } from "@mui/icons-material";
 import React from "react";
 
 const ProjectHeader = () => {
@@ -21,7 +21,7 @@ function SearchBar() {
           sx={{ fontSize: "26px" }}
         />
       </div>
-      <div className="border-b-2 border-slate-200">
+      <div className="border-b-2 w-[67%] border-slate-200">
         <input
           type="text"
           placeholder="Search a project..."
@@ -32,11 +32,14 @@ function SearchBar() {
   );
 }
 
-
 function AddProjectButton() {
-    return(
-        <button className="bg-green-100  text-green-500 font-light px-2 pr-3 text-[14px] rounded-md flex items-center gap-1">
-            <Add sx={{fontSize: "22px"}}/>
-            <span>New Project</span></button>
-    )
+  return (
+    <div className="flex gap-3">
+      <button className="bg-green-100  text-green-500 font-light px-2 pr-3 max-sm:pr-2 text-[14px] rounded-md flex items-center gap-1">
+        <Add sx={{ fontSize: "22px" }}  />
+        <span className="max-sm:hidden">New Project</span>
+      </button>
+      <Menu className="text-slate-400 h-9 cursor-pointer hidden max-sm:block" />
+    </div>
+  );
 }

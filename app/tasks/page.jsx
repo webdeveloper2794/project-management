@@ -3,7 +3,7 @@ import AllTasks from "../Pages/AllTasks/AllTasks";
 
  const Page = () => {
   return (
-    <div>
+    <div className="">
       <AllTasks/>
     </div>
   );

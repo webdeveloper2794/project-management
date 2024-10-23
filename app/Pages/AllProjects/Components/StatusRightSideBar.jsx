@@ -3,7 +3,7 @@ import React from "react";
 
 const StatusRightSideBar = () => {
   return (
-    <div className="w-[22%] flex justify-end items-center">
+    <div className="w-[22%] flex justify-end items-center max-lg:hidden ">
       <div className="h-[92%] w-[94%] bg-white rounded-l-3xl p-3 flex flex-col">
         <Header />
         <div className="flex flex-col gap-11 items-center justify-center mt-6">
@@ -16,7 +16,7 @@ const StatusRightSideBar = () => {
   );
 };
 
-export default StatusRightSideBar;
+
 
 function Header() {
   return (
@@ -69,3 +69,6 @@ function SingleProjct() {
     </li>
   );
 }
+
+
+export default StatusRightSideBar;
