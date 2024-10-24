@@ -20,11 +20,23 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.poppins{
+.poppins {
   font-family: var(--font-poppins);
 }
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4d0d0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
 }

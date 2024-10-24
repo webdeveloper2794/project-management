@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useRef, useEffect } from "react";
 import {
   TaskAlt,
@@ -13,7 +13,6 @@ const SideBar = () => {
     useContextApp();
   const sideBarMenuRef = useRef(null);
 
-  console.log("sidebar menu", sideBarMenu);
 
   useEffect(() => {
     function handleClickOutside(e) {

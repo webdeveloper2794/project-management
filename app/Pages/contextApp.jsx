@@ -4,6 +4,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 import { BorderAll, Splitscreen, Logout } from "@mui/icons-material";
+import { allIcons } from "../Components/Data/AllIcons";
 // Imports necessary hooks and functions from React:
 // - `createContext`: to create a context
 // - `useContext`: to access context values in other components
@@ -16,6 +17,14 @@ const defaultState = {
   setOpenSideBar: () => {},
   sideBarMenu: [],
   setSideBarMenu: () => {},
+  openProjectWindow: false,
+  setOpenProjectWindow: () => {},
+  allIconsData: [],
+  setAllIconsData: () => {},
+  openIconWindow: false,
+  setOpenIconWindow: () => {},
+  selectedIcon: null,
+  setSelectedIcon: () => {},
 };
 
 // Creating the context
@@ -27,25 +36,29 @@ export default function ContextAppProvider({ children }) {
   const [isMobileView, setIsMobileView] = useState(false);
   const [sideBarMenu, setSideBarMenu] = useState([
     {
-        id: 1,
-        name: "All Projects",
-        isSelected: true,
-        icon: <BorderAll />, // Store the icon JSX directly
-      },
-      {
-        id: 2,
-        name: "All Tasks",
-        isSelected: false,
-        icon: <Splitscreen />,
-      },
-      {
-        id: 3,
-        name: "Logout",
-        isSelected: false,
-        icon: <Logout />,
-      },
+      id: 1,
+      name: "All Projects",
+      isSelected: true,
+      icon: <BorderAll />, // Store the icon JSX directly
+    },
+    {
+      id: 2,
+      name: "All Tasks",
+      isSelected: false,
+      icon: <Splitscreen />,
+    },
+    {
+      id: 3,
+      name: "Logout",
+      isSelected: false,
+      icon: <Logout />,
+    },
   ]);
 
+  const [openProjectWindow, setOpenProjectWindow] = useState(false);
+  const [openIconWindow, setOpenIconWindow] = useState(false);
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [allIconsData, setAllIconsData] = useState(allIcons);
   //   Update window size
   useEffect(() => {
     function handleWindowSizeChange() {
@@ -74,7 +87,22 @@ export default function ContextAppProvider({ children }) {
   }, [sideBarMenu]);
 
   return (
-    <ContextApp.Provider value={{ openSideBar, setOpenSideBar,sideBarMenu, setSideBarMenu }}>
+    <ContextApp.Provider
+      value={{
+        openSideBar,
+        setOpenSideBar,
+        sideBarMenu,
+        setSideBarMenu,
+        openProjectWindow,
+        setOpenProjectWindow,
+        allIconsData,
+        setAllIconsData,
+        openIconWindow,
+        setOpenIconWindow,
+        selectedIcon,
+        setSelectedIcon,
+      }}
+    >
       {children}
     </ContextApp.Provider>
   );

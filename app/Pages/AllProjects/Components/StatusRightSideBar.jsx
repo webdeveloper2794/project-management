@@ -1,13 +1,43 @@
 import { Splitscreen } from "@mui/icons-material";
 import React from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
+const percentage = 50;
 const StatusRightSideBar = () => {
   return (
     <div className="w-[22%] flex justify-end items-center max-lg:hidden ">
       <div className="h-[92%] w-[94%] bg-white rounded-l-3xl p-3 flex flex-col">
         <Header />
         <div className="flex flex-col gap-11 items-center justify-center mt-6">
-          <CircularChart />
+          {/* <CircularChart /> */}
+          <div className="w-40 h-40  mt-5 rounded-full flex items-center justify-center">
+            <div className="w-[86%] flex justify-center items-center h-[86%] bg-white rounded-full shadow-xl">
+              <CircularProgressbar
+                value={percentage}
+                text={`${percentage}%`}
+                styles={buildStyles({
+                  // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                  strokeLinecap: "round",
+
+                  // Text size
+                  textSize: "16px",
+
+                  // How long animation takes to go from one percentage to another, in seconds
+                  pathTransitionDuration: 0.5,
+
+                  // Can specify path transition in more detail, or remove it entirely
+                  // pathTransition: 'none',
+
+                  // Colors
+                  pathColor: `rgba(34, 197, 94,0.8)`,
+                  textColor: "rgb(34, 197, 94)",
+                  trailColor: "#edeef0",
+                })}
+              />
+            </div>
+          </div>
+
           <ProjectsCompletedLabels />
         </div>
         <ProjectsLists />
@@ -15,8 +45,6 @@ const StatusRightSideBar = () => {
     </div>
   );
 };
-
-
 
 function Header() {
   return (
@@ -28,11 +56,7 @@ function Header() {
 function CircularChart() {
   return (
     <div className="flex justify-center items-center">
-      <div className="w-40 h-40 bg-slate-100 mt-5 rounded-full flex items-center justify-center">
-        <div className="w-[86%] flex justify-center items-center h-[86%] bg-white rounded-full">
-          <span className="text-xl font-semibold text-green-500">90%</span>
-        </div>
-      </div>
+      <div></div>
     </div>
   );
 }
@@ -69,6 +93,5 @@ function SingleProjct() {
     </li>
   );
 }
-
 
 export default StatusRightSideBar;
